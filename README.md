@@ -11,6 +11,6 @@ there is just way too many files.
 
 ***PS***
 
-There is a nod config file package.json, which could be used to reference angular and then gain these files.
+There is a nodejs config file package.json, which could be used to reference angular and then gain these files.
 
 I did create this application myself for those who doubt me my only assistant in getting it done was good old Google.
