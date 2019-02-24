@@ -24,8 +24,12 @@
         var saveSubs = APIService.saveSubscriber(sub);
         saveSubs.then(function (d) {
             console.log('what is d: ' + d.data + '');
-
-            swal("PopUp",d.data, "info");
+            var message = d.data;
+            if (d.data !== "" && d.data.includes("Please") === false) {
+                swal("PopUp", d.data, "info");
+            } else if (d.data.includes("Please")) {
+                swal("PopUp", d.data, "error");
+            }
 
             
             getAll();
