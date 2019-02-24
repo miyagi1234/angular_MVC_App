@@ -3,7 +3,7 @@
   "name": "asp.net",
   "private": true,
   "devDependencies": {
-    "angularjs": "^1.7.5"
+    "angularjs": "^1.7.5",
     "sweetalert": "2.1.2"
   }
 }
