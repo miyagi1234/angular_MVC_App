@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Welcome";
+}
+<style>
+    table, tr, td, th {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+    }
+</style>
+
+<h2>Welcome</h2>
+<body data-ng-app="APIModule">
+    <div id="tblSubs" ng-controller="APIController">
+        <table ng-hide="true">
+            <tr>
+                <th>ID</th>
+                <th>Name ( Double click to update)</th>
+                <th>Subscribed Date</th>
+                <th></th>
+            </tr>
+            <tbody data-ng-repeat="sub in subscriber">
+                <tr>
+                    <td>{{sub.Id}}</td>
+                    <td ng-blur="updSubscriber(sub,$event)" ng-dblclick="makeEditable($event)">{{sub.Name}}</td>
+                    <td>{{sub.TimeStamp}}</td>
+                    <td>
+                        <input type="button" id="Delete" value="Delete" data-ng-click="dltSubscriber(sub.Id)" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <label for="field_name">Name</label>
+            <input type="text" class="form-control" id="field_name" placeholder="Enter name" [required="string" ] data-ng-model="first_name" />
+            <label for="field_surname">Surname</label>
+            <input type="text" class="form-control" id="field_surname" placeholder="Enter surname" [required="string" ] data-ng-model="last_name" />
+            <label for="field_birthDate">BirthDate</label>
+
+            <div ng-controller="DatepickerPopupDemoCtrl">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="input-group">
+                            <input type="text" class="form-control" id="myDatePicker" uib-datepicker-popup is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" data-ng-model="$parent.birth_date" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <label for="field_color_pref">Favourite Color</label>
+            <select class="form-control" data-ng-model="color_pref" ng-options="x for x in colors"></select>
+            <div class="checkbox">
+                <label for="field_coffy_pref"><input type="checkbox" checked="" id="coffy_pref" [required="string" ] data-ng-model="coffy_pref" />Do you Like Coffy</label>
+            </div>
+        </div>
+        <button type="button" class="btn btn-default" data-ng-click="saveSubs();">Submit</button>
+    </div>
+
+    <div ng-controller="ModalDemoCtrl as $ctrl" class="modal-demo">
+        <script type="text/ng-template" id="myModalContent.html">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">{{ my_message }}</h3>
+            </div>
+            <div class="modal-body" id="modal-body">
+                {{ ctrl.my_message }}
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            </div>
+        </script>
+        <script type="text/ng-template" id="stackedModal.html">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
+            </div>
+            <div class="modal-body" id="modal-body-{{name}}">
+                Having multiple modals open at once is probably bad UX but it's technically possible.
+            </div>
+        </script>
+
+        <div class="modal-parent">
+        </div>
+    </div>
+
+
+
+</body>
+<script src="~/Scripts/sweetAlert/sweetalert.min.js"></script>
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="~/Scripts/angular-ui/ui-bootstrap.js"></script>
+<script src="~/Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+<script src="~/Scripts/APIScripts/Module.js"></script>
+<script src="~/Scripts/APIScripts/Service.js"></script>
+<script src="~/Scripts/APIScripts/Controller.js"></script>
+
+<style>
+    .input-group {
+        position: relative;
+        display: inherit;
+        border-collapse: separate;
+    }
+</style>
