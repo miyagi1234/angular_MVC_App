@@ -38,34 +38,56 @@
             </tbody>
         </table>
         <div class="form-group">
-            <label for="field_name">Name</label>
-            <input type="text" class="form-control" id="field_name" placeholder="Enter name" [required="string" ] data-ng-model="first_name" />
-            <label for="field_surname">Surname</label>
-            <input type="text" class="form-control" id="field_surname" placeholder="Enter surname" [required="string" ] data-ng-model="last_name" />
-            <label for="field_birthDate">BirthDate</label>
-
-            <div ng-controller="DatepickerPopupDemoCtrl">
+            <div class="table">
                 <div class="row">
-                    <div class="col-md-6">
-                        <p class="input-group">
-                            <input type="text" class="form-control" id="myDatePicker" uib-datepicker-popup is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" data-ng-model="$parent.birth_date" />
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                            </span>
-                        </p>
+                    <label for="field_name">Name</label>
+                </div>
+                <div class="row">
+                    <input type="text" class="form-control" id="field_name" placeholder="Enter name" [required="string" ] data-ng-model="first_name" />
+                </div>
+                <div class="row"><p></p></div>
+                <div class="row">
+                    <label for="field_surname">Surname</label>
+                </div>
+                <div class="row">
+                    <input type="text" class="form-control" id="field_surname" placeholder="Enter surname" [required="string" ] data-ng-model="last_name" />
+                </div>
+                <div class="row"><p></p></div>
+                <div class="row">
+                    <label for="field_birthDate">Birth Date</label>
+                </div>
+                <div class="row">
+                    <div ng-controller="DatepickerPopupDemoCtrl">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" id="myDatePicker" uib-datepicker-popup is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" data-ng-model="$parent.birth_date" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="table" style="margin-left: 15px">
+                        <div class="row"><label for="field_color_pref">Favourite Color</label></div>
+                        <div class="row"><select class="selectpicker" data-ng-model="color_pref" ng-options="x for x in colors"></select></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="checkbox" style="margin-left: 3px">
+                        <label for="field_coffy_pref" style="font-weight: bold"><input type="checkbox" checked="" id="coffy_pref" [required="string" ] data-ng-model="coffy_pref" />Do you Like Coffee</label>
+                    </div>
+                </div>
+                <div class="row"><p></p></div>
+                <div class="row">
+                    <button type="button" class="btn btn-default" data-ng-click="saveSubs();">Submit</button>
+                </div>
             </div>
-
-            <div class="table" style="margin-left: 15px">
-                <div class="row"><label for="field_color_pref">Favourite Color</label></div>
-                <div class="row"><select class="selectpicker" data-ng-model="color_pref" ng-options="x for x in colors"></select></div>
-            </div>
-            <div class="checkbox" style="margin-left: 3px">
-                <label for="field_coffy_pref" style="font-weight: bold"><input type="checkbox" checked="" id="coffy_pref" [required="string" ] data-ng-model="coffy_pref" />Do you Like Coffy</label>
-            </div>
+          
         </div>
-        <button type="button" class="btn btn-default" data-ng-click="saveSubs();">Submit</button>
     </div>
 
     <div ng-controller="ModalDemoCtrl as $ctrl" class="modal-demo">
