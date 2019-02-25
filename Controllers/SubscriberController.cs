@@ -56,13 +56,18 @@ namespace AngularJsApp.Controllers
         // POST: api/Subscriber
         public string Post(UserInfo obj)
         {
+            if (obj.CoffyPreference == null)
+            {
+                //set default value, as the tickbox was not ticked by the user
+                obj.CoffyPreference = false;
+            }
             bool is_there_data = false;
             DateTime validDate;
 
-            if (!string.IsNullOrEmpty(obj.Name) || 
-                !string.IsNullOrEmpty(obj.Surname) || 
-                (obj.BirthDate != null && !DateTime.TryParse(obj.BirthDate.ToString(), out validDate)) || 
-                obj.CoffyPreference != null || obj.ColorPreference != null)
+            if (!string.IsNullOrEmpty(obj.Name) && 
+                !string.IsNullOrEmpty(obj.Surname) && 
+                (obj.BirthDate != null && DateTime.TryParse(obj.BirthDate.ToString(), out validDate)) && 
+                obj.CoffyPreference != null && obj.ColorPreference != null)
             {
                 is_there_data = true;
             }

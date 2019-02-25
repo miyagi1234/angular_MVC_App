@@ -8,6 +8,12 @@
         padding: 10px;
         margin: 10px;
     }
+
+    input[type="checkbox"] {
+        -webkit-transform: scale(1.5,1.5);
+        -moz-transform: scale(1.5,1.5);
+        -transform: scale(1.5,1.5);
+    }
 </style>
 
 <h2>Welcome</h2>
@@ -51,10 +57,12 @@
                 </div>
             </div>
 
-            <label for="field_color_pref">Favourite Color</label>
-            <select class="form-control" data-ng-model="color_pref" ng-options="x for x in colors"></select>
-            <div class="checkbox">
-                <label for="field_coffy_pref"><input type="checkbox" checked="" id="coffy_pref" [required="string" ] data-ng-model="coffy_pref" />Do you Like Coffy</label>
+            <div class="table" style="margin-left: 15px">
+                <div class="row"><label for="field_color_pref">Favourite Color</label></div>
+                <div class="row"><select class="selectpicker" data-ng-model="color_pref" ng-options="x for x in colors"></select></div>
+            </div>
+            <div class="checkbox" style="margin-left: 3px">
+                <label for="field_coffy_pref" style="font-weight: bold"><input type="checkbox" checked="" id="coffy_pref" [required="string" ] data-ng-model="coffy_pref" />Do you Like Coffy</label>
             </div>
         </div>
         <button type="button" class="btn btn-default" data-ng-click="saveSubs();">Submit</button>
